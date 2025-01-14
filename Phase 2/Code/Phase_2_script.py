@@ -23,8 +23,8 @@ class HospitalSimulation:
                  prob_hard_surgery=0.05,
                  surgery_duration_mean={'s': 30.222215, 'm': 74.54242222, 'h': 242.0312},
                  surgery_duration_std={'s': 4.958886914, 'm': 9.953222836, 'h': 63.27455578},
-                 preoperative_beds=25,        # **New Parameter**
-                 general_ward_beds=40):        # **New Parameter**
+                 preoperative_beds=25,
+                 general_ward_beds=40):
         self.simulation_time = simulation_time
         self.clock = 0
         self.future_event_list = []    # FEL (Priority Queue)
@@ -1475,11 +1475,11 @@ def sensitivity_analysis():
     }
 
     variation_levels = {
-        'arrival_rate_urgent': [baseline_params['arrival_rate_urgent'] * factor for factor in [0.8, 1.0, 1.2, 1.4, 1.6]],  # ±20%
+        'arrival_rate_urgent': [baseline_params['arrival_rate_urgent'] * factor for factor in [0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2]],  # ±20%
         'prob_hard_surgery': [baseline_params['prob_hard_surgery'] * factor for factor in [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]],  # ±20%
-        'surgery_duration_mean_h': [baseline_params['surgery_duration_mean']['h'] * factor for factor in [0.9, 1.0, 1.1]],  # ±10%
-        'preoperative_beds': [20, 25, 30, 35],
-        'general_ward_beds': [35, 40, 45, 50]
+        'surgery_duration_mean_h': [baseline_params['surgery_duration_mean']['h'] * factor for factor in [0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]],  # ±10%
+        'preoperative_beds': [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+        'general_ward_beds': [35, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
     }
 
     sensitivity_results = []
